@@ -2,6 +2,14 @@
  * Home page
  *******************************************
  */
+
+html {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+html.wf-active {
+  font-family: 'Muli';
+}
 body {
   margin: 0;
   font-family: 'Muli', sans-serif;
@@ -58,12 +66,6 @@ header {
 
 .logo {
   margin-left: 30px;
-  width: 200px;
-  height: 61px;
-  background-image: url(/assets/logo-platzi-video.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
 }
 
 .menu {
@@ -104,7 +106,7 @@ ul:hover {
   cursor: pointer;
 }
 
-.menu > div > img {
+.menu > div > svg {
   margin-right: 8px;
   width: 40px;
 }

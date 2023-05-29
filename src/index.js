@@ -1,7 +1,7 @@
 import h from 'hyperscript'
 import { fetchPopular, fetchHighestRated, fetchTrending } from './api'
 import CarouselItem from './CarouselItem'
-
+import { lazyLoading } from './lazyLoader'
 const SectionTitle = title => h('h3.carousel-title', title)
 
 const Carousel = ({ itemsList = [] }) =>
@@ -14,7 +14,7 @@ const Carousel = ({ itemsList = [] }) =>
           attributes: { titles, posterImage, slug, youtubeVideoId, startDate },
         }) =>
           CarouselItem({
-            imageUrl: posterImage.large,
+            imageUrl: posterImage.small,
             title: titles.en,
             subtitle: titles.ja_jp,
             slug,
@@ -58,4 +58,5 @@ window.addEventListener('DOMContentLoaded', async () => {
         itemsList: popular,
       })
     )
+  lazyLoading()
 })
