@@ -1,7 +1,9 @@
+import { formatDistance, parseISO } from 'date-fns'
 import h from 'hyperscript'
-import moment from 'moment'
 
-const relativeDate = dateStr => moment(dateStr, 'YYYY-MM-DD').fromNow()
+// const relativeDate = dateStr => moment(dateStr, 'YYYY-MM-DD').fromNow()
+const relativeDate = dateStr =>
+  formatDistance(parseISO(dateStr, 'YYYY-MM-DD'), new Date())
 
 const Controls = ({ slug, youtubeVideoId }) =>
   h(
