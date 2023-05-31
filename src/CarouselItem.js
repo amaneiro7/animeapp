@@ -7,11 +7,12 @@ const relativeDate = dateStr =>
 
 const Controls = ({ slug, youtubeVideoId }) =>
   h(
-    'div',
+    'div.carousel-item__links',
     h(
-      'a',
+      'button.js-video-link',
       {
         href: `https://www.youtube.com/watch?v=${youtubeVideoId}`,
+        'data-Video-id': youtubeVideoId,
         title: 'Watch trailer',
         target: '_blank',
         rel: 'noreferrer',
@@ -52,7 +53,7 @@ const CarouselItem = ({
       loading: 'lazy',
     }),
     h(
-      'div',
+      'div.carousel-item__details',
       Controls({ slug, youtubeVideoId }),
       h('p', title),
       h('p', subtitle),

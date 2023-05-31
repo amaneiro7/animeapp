@@ -2,6 +2,7 @@ import h from 'hyperscript'
 import { fetchPopular, fetchHighestRated, fetchTrending } from './api'
 import CarouselItem from './CarouselItem'
 import { lazyLoading } from './lazyLoader'
+import { modalListener } from './modal'
 const SectionTitle = title => h('h3.carousel-title', title)
 
 const Carousel = ({ itemsList = [] }) =>
@@ -58,5 +59,13 @@ window.addEventListener('DOMContentLoaded', async () => {
         itemsList: popular,
       })
     )
+  document.body.addEventListener('click', event => {
+    const tagName = event.target.tagName
+    if (['IMG'].includes(tagName)) {
+      modalListener(event)
+    }
+  })
+  // const allYoutubeLinks = document.querySelectorAll('.js-video-link')
+  // allYoutubeLinks.forEach(link => link.addEventListener('click', modalListener))
   lazyLoading()
 })
