@@ -7,13 +7,6 @@ const shouldAnalyze = process.argv.includes('--analyze')
 const nodeEnv = process.env.NODE_ENV || 'development'
 
 const plugins = []
-const optimization = {}
-if (nodeEnv === 'production')
-  return (this.optimization = {
-    splitChunks: {
-      chunks: 'all',
-    },
-  })
 
 if (shouldAnalyze) {
   plugins.push(new BundleAnalyzerPlugin())
@@ -21,12 +14,7 @@ if (shouldAnalyze) {
 
 const config = {
   mode: nodeEnv,
-  entry: './src/index.js',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/dist/',
-    filename: '[name].bundle.js',
-  },
+  entry: './frontend/index.js',
   module: {
     rules: [
       {
@@ -35,11 +23,15 @@ const config = {
       },
     ],
   },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/dist/',
+    filename: '[name].bundle.js',
+  },
   devServer: {
     static: '.',
   },
   plugins,
-  optimization,
 }
 
 module.exports = config

@@ -1,5 +1,5 @@
-import { formatDistance, parseISO } from 'date-fns'
-import h from 'hyperscript'
+const { formatDistance, parseISO } = require ('date-fns')
+const h = require('hyperscript')
 
 // const relativeDate = dateStr => moment(dateStr, 'YYYY-MM-DD').fromNow()
 const relativeDate = dateStr =>
@@ -61,4 +61,4 @@ const CarouselItem = ({
     )
   )
 
-export default CarouselItem
+module.exports = CarouselItem

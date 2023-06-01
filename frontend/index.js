@@ -1,4 +1,7 @@
-export function lazyLoading() {
+import {modalListener} from './modal'
+
+!(function(document) {
+  //add Lazy Loading
   const cards = document.querySelectorAll('.carousel-item__img')
 
   const options = {
@@ -19,4 +22,6 @@ export function lazyLoading() {
   cards.forEach(card => {
     observer.observe(card)
   })
-}
+  //add Modal Listener
+  document.body.addEventListener('click', modalListener)
+})(document, window)

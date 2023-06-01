@@ -2,13 +2,17 @@
   "name": "platzi-optimizacion-web",
   "version": "0.1.0",
   "description": "Proyecto del curso de Optimizacion Web de Platzi",
-  "author": "@jonalvarezz",
+  "author": "@jonalvarezz",  
+  "main": "serve.js",
   "scripts": {
-    "start": "npm run dev",
-    "dev": "webpack-dev-server",
-    "build": "webpack --mode production --env production",
+    "start": "npm run serve",
+    "dev": "concurrently \"webpack -w\" \"micro-dev\"",
+    "export": "node export.js",
+    "build": "webpack --mode production --env production && node export",
     "analyze": "npm run build -- --analyze",
-    "serve": "serve ."
+    "serve": "serve .",
+    "pre-commit": "pretty-quick --staged",
+    "prepare": "husky install"
   },
   "prettier": {
     "trailingComma": "es5",
@@ -23,12 +27,18 @@
   },
   "license": "ISC",
   "devDependencies": {
+    "concurrently": "^8.0.1",
     "css-loader": "^6.8.1",
-    "husky": "^4.2.3",
+    "date-fns": "^2.30.0",
+    "husky": "^8.0.3",
     "hyperscript": "^2.0.2",
     "lodash": "^4.17.15",
+    "micro": "^10.0.1",
+    "micro-dev": "^2.2.1",
+    "modal-video": "^2.4.8",
     "prettier": "1.19.1",
     "pretty-quick": "^2.0.1",
+    "serve": "^14.2.0",
     "style-loader": "^3.3.3",
     "webpack": "^5.84.1",
     "webpack-bundle-analyzer": "^4.8.0",
@@ -36,8 +46,6 @@
     "webpack-dev-server": "^4.15.0"
   },
   "dependencies": {
-    "date-fns": "^2.30.0",
-    "modal-video": "^2.4.8",
-    "serve": "^14.2.0"
+    "isomorphic-unfetch": "^4.0.2"
   }
 }
