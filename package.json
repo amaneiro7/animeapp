@@ -2,7 +2,7 @@
   "name": "platzi-optimizacion-web",
   "version": "0.1.0",
   "description": "Proyecto del curso de Optimizacion Web de Platzi",
-  "author": "@jonalvarezz",  
+  "author": "@amaneiro7",  
   "main": "serve.js",
   "scripts": {
     "start": "npm run serve",
